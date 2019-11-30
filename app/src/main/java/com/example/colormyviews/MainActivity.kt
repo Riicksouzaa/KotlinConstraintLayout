@@ -14,6 +14,25 @@ class MainActivity : AppCompatActivity() {
         setListners()
     }
 
+    private fun makeItImagable(view: View){
+
+        when (view.id){
+            R.id.box_one_text -> view.setBackgroundResource(R.drawable.bg1)
+            R.id.box_two_text -> view.setBackgroundResource(R.drawable.bg2)
+            R.id.box_three_text -> view.setBackgroundResource(R.drawable.bg3)
+            R.id.box_four_text -> view.setBackgroundResource(R.drawable.bg4)
+            R.id.box_five_text -> view.setBackgroundResource(R.drawable.bg5)
+
+            // Boxes using custom colors for background
+            R.id.red_button -> box_three_text.setBackgroundResource(R.color.my_red)
+            R.id.yellow_buttton -> box_four_text.setBackgroundResource(R.color.my_yellow)
+            R.id.green_button -> box_five_text.setBackgroundResource(R.color.my_green)
+
+            else -> view.setBackgroundResource(R.drawable.bg6)
+        }
+
+    }
+
     private fun makeColored(view: View){
 
         when (view.id){
@@ -28,10 +47,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun setListners(){
-        val clickableViews: List<View> = listOf(box_one_text, box_two_text, box_three_text, box_four_text, box_five_text, constraint_layout)
+        val clickableViews: List<View> = listOf(box_one_text, box_two_text, box_three_text, box_four_text, box_five_text, constraint_layout, yellow_buttton, green_button, red_button)
 
         for (item in clickableViews) {
-            item.setOnClickListener { makeColored(it) }
+            item.setOnClickListener {
+//                makeColored(it)
+                makeItImagable(it)
+            }
         }
     }
 }
